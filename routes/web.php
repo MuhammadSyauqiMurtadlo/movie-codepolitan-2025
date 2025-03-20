@@ -13,14 +13,14 @@ $movies = [];
 
 Route::group(
     [
-        'middleware' => ['IsAuth'],
+        // 'middleware' => ['IsAuth'],
         'prefix' => 'movie',
         'as' => 'movie.',
     ],
-    function () use ($movies) {
+    function () {
         Route::get('/', [MovieController::class, 'index']);
-        // Route::get('/{id}', [MovieController::class, 'show']);
-        Route::get('/{id}', [MovieController::class, 'show'])->middleware(['isMember']);
+        Route::get('/{id}', [MovieController::class, 'show']);
+        // Route::get('/{id}', [MovieController::class, 'show'])->middleware(['isMember']);
         Route::post('/', [MovieController::class, 'store']);
         Route::put('/{id}', [MovieController::class, 'update']);
         Route::delete('/{id}', [MovieController::class, 'destroy']);

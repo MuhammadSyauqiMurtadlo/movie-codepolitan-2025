@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
 class MovieController extends Controller
 {
@@ -18,6 +20,15 @@ class MovieController extends Controller
                 'genre' => 'Action',
             ];
         }
+    }
+
+    public static function middleware()
+    {
+        return [
+            'isAuth',
+            new Middleware('IsMember', only: ['show']),
+            // new Middleware('IsMember', except: ['show']),
+        ];
     }
 
     public function index()
