@@ -4,6 +4,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Middleware\isAuth;
 use App\Http\Middleware\CheckMembership;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,3 +36,7 @@ Route::get('/pricing', function () {
 Route::get('/login', function () {
     return 'Login page';
 })->name('login');
+
+Route::get('/request', function (Request $request) {
+    dd($request);
+});
