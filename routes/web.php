@@ -43,10 +43,10 @@ Route::get('/login', function () {
 //     }
 // });
 
-// Route::get('/request', function (Request $request) {
-//     $user = $request->all();
-//     return $user;
-// });
+Route::get('/request', function (Request $request) {
+    $user = $request->all();
+    return $user;
+});
 
 // ?process data from request
 // Route::get('/request', function (Request $request) {
@@ -56,10 +56,13 @@ Route::get('/login', function () {
 //     return $filterd;
 // });
 
-Route::post('/request', function (Request $request) {
-    $input = $request->input();
-    return $input;
+// Route::post('/request', function (Request $request) {
+//     $input = $request->input();
+//     return $input;
+// });
 
-    // $query = $request->query();
-    // return $query;
+//? date specific method
+Route::post('/request', function (Request $request) {
+    $data = $request->date('schedule', 'Y-m-d', 'Asia/Jakarta');
+    return $data->diffForHumans();
 });
