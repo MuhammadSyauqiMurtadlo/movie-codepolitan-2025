@@ -43,7 +43,15 @@ Route::get('/login', function () {
 //     }
 // });
 
+// Route::get('/request', function (Request $request) {
+//     $user = $request->all();
+//     return $user;
+// });
+
+// ?process data from request
 Route::get('/request', function (Request $request) {
-    $user = $request->all();
-    return $user['location'];
+    $filterd = $request->collect()->map(function ($value, $key) {
+        return strtoupper($value);
+    });
+    return $filterd;
 });
