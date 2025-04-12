@@ -48,8 +48,17 @@ Route::post('/request', function (Request $request) {
     // if ($request->has('email', 'password')) {
     //     return 'Login success';
     // }
-    if ($request->hasAny('email', 'password')) {
-        return 'Data ada';
+    // if ($request->hasAny('email', 'password')) {
+    //     return 'Data ada';
+    // }
+
+    $request->merge(['email' => 'syauqi000',]);
+
+    // ? missing data
+    if ($request->missing('email')) {
+        return 'Email is not required';
+    } else {
+        return 'Email is required';
     }
     return 'Gagal boss';
 });
