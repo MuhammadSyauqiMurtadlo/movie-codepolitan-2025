@@ -37,6 +37,13 @@ Route::get('/login', function () {
     return 'Login page';
 })->name('login');
 
+// Route::get('/request', function (Request $request) {
+//     if ($request->is('request')) {
+//         return true;
+//     }
+// });
+
 Route::get('/request', function (Request $request) {
-    dd($request);
+    $user = $request->all();
+    return $user['location'];
 });
