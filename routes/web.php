@@ -43,9 +43,15 @@ Route::get('/login', function () {
 //     }
 // });
 
-Route::get('/request', function (Request $request) {
-    $user = $request->all();
-    return $user;
+//? check data from request
+Route::post('/request', function (Request $request) {
+    // if ($request->has('email', 'password')) {
+    //     return 'Login success';
+    // }
+    if ($request->hasAny('email', 'password')) {
+        return 'Data ada';
+    }
+    return 'Gagal boss';
 });
 
 // ?process data from request
@@ -62,7 +68,7 @@ Route::get('/request', function (Request $request) {
 // });
 
 //? date specific method
-Route::post('/request', function (Request $request) {
-    $data = $request->date('schedule', 'Y-m-d', 'Asia/Jakarta');
-    return $data->diffForHumans();
-});
+// Route::post('/request', function (Request $request) {
+//     $data = $request->date('schedule', 'Y-m-d', 'Asia/Jakarta');
+//     return $data->diffForHumans();
+// });
