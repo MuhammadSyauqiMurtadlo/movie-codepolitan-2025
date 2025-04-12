@@ -49,9 +49,17 @@ Route::get('/login', function () {
 // });
 
 // ?process data from request
-Route::get('/request', function (Request $request) {
-    $filterd = $request->collect()->map(function ($value, $key) {
-        return strtoupper($value);
-    });
-    return $filterd;
+// Route::get('/request', function (Request $request) {
+//     $filterd = $request->collect()->map(function ($value, $key) {
+//         return strtoupper($value);
+//     });
+//     return $filterd;
+// });
+
+Route::post('/request', function (Request $request) {
+    $input = $request->input();
+    return $input;
+
+    // $query = $request->query();
+    // return $query;
 });
