@@ -106,6 +106,10 @@ Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function (
         return response('Login success', 200)->cookie('user', $user);
     });
 
+    Route::get('/logout', function () {
+        return response('Logout success', 200)->withoutCookie('user');
+    });
+
     Route::get('/privacy', function () {
         return 'Privacy page';
     });
