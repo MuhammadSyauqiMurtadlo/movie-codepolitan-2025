@@ -81,3 +81,11 @@ Route::post('/request', function (Request $request) {
 //     $data = $request->date('schedule', 'Y-m-d', 'Asia/Jakarta');
 //     return $data->diffForHumans();
 // });
+
+
+// !respone
+Route::get('/response', function () {
+    return response('OK', 200)
+        ->header('Content-Type', 'text/plain')
+        ->header('X-Header-One', 'Header Value');
+});
