@@ -4,6 +4,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Middleware\isAuth;
 use App\Http\Middleware\CheckMembership;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
@@ -88,4 +89,21 @@ Route::get('/response', function () {
     return response('OK', 200)
         ->header('Content-Type', 'text/plain')
         ->header('X-Header-One', 'Header Value');
+});
+
+
+// !chace control
+Route::get('/cache-control', function () {
+    return response::make('page allow to cache', 200)
+        ->header('Cache-Control', 'publis, max-age=86400');
+});
+
+Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function () {
+    Route::get('/privacy', function () {
+        // ...
+    });
+
+    Route::get('/terms', function () {
+        // ...
+    });
 });
