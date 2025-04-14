@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -99,11 +100,17 @@ Route::get('/cache-control', function () {
 });
 
 Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function () {
+
+    Route::get('/dashboard', function () {
+        $user = 'admin';
+        return response('Login success', 200)->cookie('user', $user);
+    });
+
     Route::get('/privacy', function () {
-        // ...
+        return 'Privacy page';
     });
 
     Route::get('/terms', function () {
-        // ...
+        return 'Terms and condition page';
     });
 });
