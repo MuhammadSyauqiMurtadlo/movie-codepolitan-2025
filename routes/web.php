@@ -101,13 +101,18 @@ Route::get('/cache-control', function () {
 
 Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function () {
 
+    Route::get('/home', function () {
+        return 'Home from page ' . request()->sourceURL;
+    })->name('home');
+
     Route::get('/dashboard', function () {
         $user = 'admin';
         return response('Login success', 200)->cookie('user', $user);
     });
 
     Route::get('/logout', function () {
-        return response('Logout success', 200)->withoutCookie('user');
+        // return response('Logout success', 200)->withoutCookie('user');
+        return redirect()->route('home', ['sourceURL' => 'Logout'])->withoutCookie('user');
     });
 
     Route::get('/privacy', function () {
