@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\HomeController;
 use App\Http\Middleware\isAuth;
 use App\Http\Middleware\CheckMembership;
 use Illuminate\Support\Facades\Route;
@@ -101,9 +102,11 @@ Route::get('/cache-control', function () {
 
 Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function () {
 
-    Route::get('/home', function () {
-        return 'Home from page ' . request()->sourceURL;
-    })->name('home');
+    // Route::get('/home', function () {
+    //     return 'Home from page ' . request()->sourceURL;
+    // })->name('home');
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::get('/dashboard', function () {
         $user = 'admin';
@@ -112,7 +115,8 @@ Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function (
 
     Route::get('/logout', function () {
         // return response('Logout success', 200)->withoutCookie('user');
-        return redirect()->route('home', ['sourceURL' => 'Logout'])->withoutCookie('user');
+        // return redirect()->route('home', ['sourceURL' => 'Logout'])->withoutCookie('user');
+        return redirect()->action([HomeController::class, 'index'], ['authenticated' => false]);
     });
 
     Route::get('/privacy', function () {
