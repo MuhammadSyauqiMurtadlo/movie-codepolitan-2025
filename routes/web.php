@@ -126,4 +126,8 @@ Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function (
     Route::get('/terms', function () {
         return 'Terms and condition page';
     });
+
+    Route::get('/external', function () {
+        return redirect('https://www.laravel.com');
+    });
 });
