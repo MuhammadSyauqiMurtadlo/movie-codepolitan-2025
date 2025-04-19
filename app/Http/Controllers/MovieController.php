@@ -34,15 +34,17 @@ class MovieController extends Controller
     public function index()
     {
         // return $this->movies;
-        return response()->json([
-            'data' => $this->movies,
-            'message' => 'List of movies',
-        ], 200);
+        // return response()->json([
+        //     'data' => $this->movies,
+        //     'message' => 'List of movies',
+        // ], 200);
+
+        return view('movies.index');
     }
 
     public function show($id)
     {
-        return $this->movies[$id];
+        return view('movies.show');
     }
 
     public function store()
