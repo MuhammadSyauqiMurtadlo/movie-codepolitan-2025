@@ -13,6 +13,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
 $movies = [];
 
 Route::group(
@@ -106,7 +110,7 @@ Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function (
     //     return 'Home from page ' . request()->sourceURL;
     // })->name('home');
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::get('/dashboard', function () {
         $user = 'admin';
