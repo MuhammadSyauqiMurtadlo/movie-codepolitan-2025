@@ -12,6 +12,7 @@
     <h1>
         Movie Index
     </h1>
+    {{ dd($films) }}
 </body>
 
 </html>

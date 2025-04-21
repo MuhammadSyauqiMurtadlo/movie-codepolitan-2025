@@ -39,12 +39,18 @@ class MovieController extends Controller
         //     'message' => 'List of movies',
         // ], 200);
 
-        return view('movies.index');
+        $movies = $this->movies;
+        return view('movies.index', [
+            'films' => $movies,
+        ]);
     }
 
     public function show($id)
     {
-        return view('movies.show');
+        $movie = $this->movies[$id];
+        return view('movies.show', [
+            'movie' => $movie,
+        ]);
     }
 
     public function store()
