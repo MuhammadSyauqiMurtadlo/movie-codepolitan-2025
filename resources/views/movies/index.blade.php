@@ -10,9 +10,12 @@
 
 <body>
     <h1>
-        Movie Index
+        {{ $title }}
     </h1>
-    {{ dd($films) }}
+    <h2>
+        {{ $description }}
+    </h2>
+    {{ dd($movies) }}
 </body>
 
 </html>
