@@ -16,6 +16,7 @@
         </li>
         <?php endforeach; ?>
     </ul>
+    {{ dd($configuration) }}
     <h1>
         {{ $title }}
     </h1>
