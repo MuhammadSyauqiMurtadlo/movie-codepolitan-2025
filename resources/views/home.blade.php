@@ -35,7 +35,20 @@ $greeting = 'Hello, World!';
         <p>{{ session('message') }}</p>
     @endif
     <br>
-    {{ $name }}
+
+    My Profile :
+    <ul>
+        <li>Name: {{ $user['name'] }}</li>
+        <li>Email: {{ $user['email'] }}</li>
+        @if ($user['role'] == 'admin')
+            <li>Role: Admin</li>
+        @elseif ($user['role'] == 'user')
+            <li>Role: User</li>
+        @else
+            <li>Role: Unknow</li>
+        @endif
+    </ul>
+
 </body>
 
 </html>

@@ -14,8 +14,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    $name = '<h1>Muhammad Syauqi Murtadlo</h1>';
-    return view('home', compact('name'));
+    $user = [
+        'name' => 'Syauqi',
+        'email' => 'sauki084@gmail.com',
+        'role' => 'admin',
+    ];
+    return view('home', compact('user'));
 });
 
 $movies = [];
