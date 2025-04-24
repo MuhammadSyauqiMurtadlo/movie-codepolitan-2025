@@ -34,6 +34,8 @@ $greeting = 'Hello, World!';
     @if (session('message'))
         <p>{{ session('message') }}</p>
     @endif
+    <br>
+    {{ $name }}
 </body>
 
 </html>

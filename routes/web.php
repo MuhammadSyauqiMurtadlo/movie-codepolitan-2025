@@ -14,7 +14,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    $name = '<h1>Muhammad Syauqi Murtadlo</h1>';
+    return view('home', compact('name'));
 });
 
 $movies = [];
