@@ -31,24 +31,20 @@ $greeting = 'Hello, World!';
         <button type="submit">Submit</button>
     </form>
 
-    @if (session('message'))
-        <p>{{ session('message') }}</p>
-    @endif
-    <br>
+    <h1>Movie Category</h1>
 
-    My Profile :
-    <ul>
-        <li>Name: {{ $user['name'] }}</li>
-        <li>Email: {{ $user['email'] }}</li>
-        @if ($user['role'] == 'admin')
-            <li>Role: Admin</li>
-        @elseif ($user['role'] == 'user')
-            <li>Role: User</li>
-        @else
-            <li>Role: Unknow</li>
-        @endif
-    </ul>
+    @switch($movieCategory)
+        @case('action')
+            <p>Action Movie</p>
+        @break
 
+        @case('comedy')
+            <p>Comedy Movie</p>
+        @break
+
+        @default
+            <p>Movie Category</p>
+    @endswitch
 </body>
 
 </html>

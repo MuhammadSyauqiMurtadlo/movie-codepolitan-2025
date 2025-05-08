@@ -14,12 +14,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    $user = [
-        'name' => 'Syauqi',
-        'email' => 'sauki084@gmail.com',
-        'role' => 'admin',
-    ];
-    return view('home', compact('user'));
+    $movieCategory = 'animation';
+    return view('home', compact('movieCategory'));
 });
 
 $movies = [];
