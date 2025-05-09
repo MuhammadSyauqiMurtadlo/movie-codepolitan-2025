@@ -33,18 +33,28 @@ $greeting = 'Hello, World!';
 
     <h1>Movie Category</h1>
 
-    @switch($movieCategory)
-        @case('action')
-            <p>Action Movie</p>
-        @break
+    <ul>
+        {{-- @foreach ($movies as $movie)
+            <li>{{ $movie['title'] }} - {{ $movie['year'] }} - {{ $movie['genre'] }}</li>
+        @endforeach --}}
 
-        @case('comedy')
-            <p>Comedy Movie</p>
-        @break
+        {{-- @forelse ($movies as $movie)
+            <li>{{ $movie['title'] }} - {{ $movie['year'] }} - {{ $movie['genre'] }}</li>
+        @empty
+            <li>No movies available</li>
+        @endforelse --}}
 
-        @default
-            <p>Movie Category</p>
-    @endswitch
+        @php
+            $index = 0;
+        @endphp
+
+        @while ($index < count($movies))
+            <li>{{ $movies[$index]['title'] }} - {{ $movies[$index]['year'] }} - {{ $movies[$index]['genre'] }}</li>
+            @php
+                $index++;
+            @endphp
+        @endwhile
+    </ul>
 </body>
 
 </html>

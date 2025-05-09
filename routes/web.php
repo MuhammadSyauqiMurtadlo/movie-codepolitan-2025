@@ -14,8 +14,27 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    $movieCategory = 'animation';
-    return view('home', compact('movieCategory'));
+    // $movieCategory = 'animation';
+    // return view('home', compact('movieCategory'));
+
+    $movies = [
+        [
+            'title' => 'Movie 1',
+            'year' => 2025,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 2',
+            'year' => 2025,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 3',
+            'year' => 2025,
+            'genre' => 'Action',
+        ],
+    ];
+    return view('home', compact('movies'));
 });
 
 $movies = [];
