@@ -25,12 +25,47 @@ Route::get('/home', function () {
         ],
         [
             'title' => 'Movie 2',
-            'year' => 2025,
+            'year' => 2026,
             'genre' => 'Action',
         ],
         [
             'title' => 'Movie 3',
-            'year' => 2025,
+            'year' => 2027,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 4',
+            'year' => 2028,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 5',
+            'year' => 2029,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 6',
+            'year' => 2030,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 7',
+            'year' => 2031,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 8',
+            'year' => 2032,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 9',
+            'year' => 2033,
+            'genre' => 'Action',
+        ],
+        [
+            'title' => 'Movie 10',
+            'year' => 2034,
             'genre' => 'Action',
         ],
     ];

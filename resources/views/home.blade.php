@@ -44,7 +44,7 @@ $greeting = 'Hello, World!';
             <li>No movies available</li>
         @endforelse --}}
 
-        @php
+        {{-- @php
             $index = 0;
         @endphp
 
@@ -53,7 +53,17 @@ $greeting = 'Hello, World!';
             @php
                 $index++;
             @endphp
-        @endwhile
+        @endwhile --}}
+
+        @foreach ($movies as $movie)
+            @if ($movie['year'] < 2025)
+                @continue
+            @endif
+            @if ($movie['year'] > 2030)
+                @break
+            @endif
+            <li>{{ $movie['title'] }} - {{ $movie['year'] }} - {{ $movie['genre'] }}</li>
+        @endforeach
     </ul>
 </body>
 
