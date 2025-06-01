@@ -131,6 +131,11 @@ class MovieController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('movies.create');
+    }
+
     public function store()
     {
         $this->movies[] = [
