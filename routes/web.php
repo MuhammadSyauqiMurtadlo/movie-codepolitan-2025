@@ -29,7 +29,7 @@ Route::group(
         Route::get('/', [MovieController::class, 'index'])->name('index');
         Route::get('/create', [MovieController::class, 'create'])->name('create');
         Route::get('/{id}', [MovieController::class, 'show'])->name('show');
-        Route::post('/', [MovieController::class, 'store']);
+        Route::post('/', [MovieController::class, 'store'])->name('store');
         Route::put('/{id}', [MovieController::class, 'update']);
         Route::delete('/{id}', [MovieController::class, 'destroy']);
     }
