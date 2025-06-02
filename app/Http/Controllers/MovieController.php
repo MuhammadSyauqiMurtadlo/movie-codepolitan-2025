@@ -131,9 +131,15 @@ class MovieController extends Controller
         ]);
     }
 
-    public function create()
+    public function edit($id)
     {
-        return view('movies.create');
+        $movie = $this->movies[$id];
+        $movie['cast'] = implode(',', $movie['cast']);
+        $movie['genres'] = implode(',', $movie['genres']);
+        return view('movies.edit', [
+            'movie' => $movie,
+            'movieId' => $id,
+        ]);
     }
 
     public function store(request $request)
@@ -150,6 +156,11 @@ class MovieController extends Controller
         $this->movies[] = $newMovie;
 
         return $this->index();
+    }
+
+    public function create()
+    {
+        return view('movies.create');
     }
 
     public function update(Request $request, $id)
