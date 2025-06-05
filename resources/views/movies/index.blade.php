@@ -10,8 +10,16 @@
                     <p class="text-sm text-gray-400">{{ $movie['release_date'] }}</p>
                     <div class="absolute top-2 right-2 space-x-2 opacity-0 group-hover:opacity-100 transition">
                         <a href="{{ route('movie.edit', $loop->index) }}"
-                            class="bg-green-600 p-1 rounded hover:bg-green-500">✏️</a>
-                        <button class="bg-red-600 p-1 rounded hover:bg-red-500">🗑️</button>
+                            class="bg-green-600 p-1 rounded hover:bg-green-500">✏️
+                        </a>
+                        <form id="delete-form-{{ $loop->index }}" action="{{ route('movie.destroy', $loop->index) }}"
+                            style="display: none;" method="POST">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                        <a href="{{ route('movie.destroy', $loop->index) }}"
+                            onclick="event.preventDefault(); confirm('Are you sure you want to delete this movie?'); document.getElementById('delete-form-{{ $loop->index }}').submit();"
+                            class="bg-red-600 p-1 rounded hover:bg-red-500">🗑️</a>
                     </div>
                 </a>
             </div>

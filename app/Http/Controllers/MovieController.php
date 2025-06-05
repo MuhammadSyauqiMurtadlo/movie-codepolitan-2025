@@ -182,6 +182,6 @@ class MovieController extends Controller
     {
         unset($this->movies[$id]);
 
-        return $this->movies;
+        return $this->index();
     }
 }

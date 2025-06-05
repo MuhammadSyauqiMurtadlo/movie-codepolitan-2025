@@ -33,7 +33,7 @@ Route::group(
         Route::get('/{id}/edit', [MovieController::class, 'edit'])->name('edit');
         Route::put('/{id}', [MovieController::class, 'update'])->name('update');
         Route::patch('/{id}', [MovieController::class, 'update']);
-        Route::delete('/{id}', [MovieController::class, 'destroy']);
+        Route::delete('/{id}', [MovieController::class, 'destroy'])->name('destroy');
     }
 );
 
