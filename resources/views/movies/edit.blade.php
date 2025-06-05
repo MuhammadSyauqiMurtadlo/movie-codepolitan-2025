@@ -22,12 +22,12 @@
                     class="w-full p-2 bg-gray-800 border-gray-700 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
             </div>
             <div class="mb-4">
-                <label for="cast" class="block text-lg font-medium mb-2">Cast (comma separated)</label>
+                <label for="cast" class="block text-lg font-medium mb-2">Cast</label>
                 <input type="text" id="cast" name="cast" value="{{ $movie['cast'] }}"
                     class="w-full p-2 bg-gray-800 border-gray-700 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
             </div>
             <div class="mb-4">
-                <label for="genres" class="block text-lg font-medium mb-2">Genres (comma separated)</label>
+                <label for="genres" class="block text-lg font-medium mb-2">Genres</label>
                 <input type="text" id="genres" name="genres" value="{{ $movie['genres'] }}"
                     class="w-full p-2 bg-gray-800 border-gray-700 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600">
             </div>

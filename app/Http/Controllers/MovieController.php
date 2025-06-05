@@ -165,12 +165,16 @@ class MovieController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $this->movies[$id]['title'] = request('title');
-        // $this->movies[$id]['year'] = request('year');
-        // $this->movies[$id]['genre'] = request('genre');
-        // return $this->movies;
+        $this->movies[$id] = [
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'release_date' => $request['release_date'],
+            'cast' => explode(',', $request['cast']),
+            'genres' => explode(',', $request['genres']),
+            'image' => $request['image'],
+        ];
 
-        return $request->all();
+        return $this->show($id);
     }
 
     public function destroy($id)
