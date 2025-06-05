@@ -128,6 +128,7 @@ class MovieController extends Controller
         $movie = $this->movies[$id];
         return view('movies.show', [
             'movie' => $movie,
+            'movieId' => $id
         ]);
     }
 
