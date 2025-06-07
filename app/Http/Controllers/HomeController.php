@@ -10,5 +10,6 @@ class HomeController extends Controller
     {
         return response(request()->all());
         // return response('login success', 200);
+        // return view('welcome');
     }
 }

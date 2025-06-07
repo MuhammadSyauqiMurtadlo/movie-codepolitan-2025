@@ -2,15 +2,16 @@
 
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
-use App\Http\Middleware\isAuth;
-use App\Http\Middleware\CheckMembership;
+// use App\Http\Middleware\isAuth;
+// use App\Http\Middleware\CheckMembership;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
 
 
 Route::get('/', function () {
-    return view('app');
+    return view('welcome');
 });
 
 Route::get('/home', function () {
