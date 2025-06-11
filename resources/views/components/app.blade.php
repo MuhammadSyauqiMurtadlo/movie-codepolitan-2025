@@ -12,11 +12,21 @@
 
 <body class="bg-gray-900 text-white">
     <x-partials.header></x-partials.header>
-
-    {{-- This slot will be replaced by the content of the page that uses this component --}}
-    <section class="container mx-auto p-6">
+    {{-- <section class="container mx-auto p-6">
         {{ $slot }}
-    </section>
+    </section> --}}
+
+    <div class="min-h-screen flex">
+        <asside class="w-64 bg-gray-800 p-6">
+            {{ $sidebar }}
+        </asside>
+
+        <main class="flex-1 p-6 bg-gray-900">
+            <div class="container mx-auto">
+                {{ $main }}
+            </div>
+        </main>
+    </div>
 
 </body>
 
