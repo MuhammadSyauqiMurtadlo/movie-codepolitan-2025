@@ -21,10 +21,10 @@
         ]"></x-partials.sidebar>
     </x-slot>
     <x-slot name="main">
-        <div class="bg-blue-500 text-white py-16 px-8 rounded-lg shadow-lg">
-            <h2 class="text-4xl font-bold text-center">Welcome to Laravel 12</h2>
-            <p class="text-xl text-center mt-6">This is a simple example of a Laravel 12 setup. You can customize the
-                styles using utility classes.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            @foreach ($movies as $movie)
+                <x-movie.card :index="$loop->index" :image="$movie['image']" :title="$movie['title']" :release_date="$movie['release_date']" />
+            @endforeach
         </div>
     </x-slot>
 </x-app>
