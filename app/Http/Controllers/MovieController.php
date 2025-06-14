@@ -117,11 +117,10 @@ class MovieController extends Controller
         // return view('movies.index', [
         //     'films' => $movies,
         // ]);
-        return view('welcome', compact('movies'));
-        // ->with([
-        //     'title' => 'List of Movies',
-        //     'description' => 'This is the list of movies',
-        // ]);
+        return view('welcome', compact('movies'))->with([
+            'title' => 'List of Movies',
+            'description' => 'This is the list of movies',
+        ]);
     }
 
     public function show($id)

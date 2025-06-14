@@ -12,28 +12,40 @@ class Card extends Component
 {
     public $index;
     public $title;
-    public $release_date;
+    public $releaseDate;
     public $image;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($index, $title, $release_date, $image)
+    public function __construct($index, $title, $releaseDate, $image)
     {
         $this->index = $index;
         $this->title = $title;
-        $this->release_date = $release_date;
+        $this->releaseDate = $releaseDate;
         $this->image = $image;
 
         if ($this->isValid()) {
             $this->title = Str::upper($title);
-            $this->release_date = Carbon::parse($release_date)->format('Y-m-d');
+            $this->releaseDate = Carbon::parse($releaseDate)->format('Y-m-d');
         }
     }
 
     public function isValid(): bool
     {
-        return $this->title && $this->release_date && $this->image;
+        return $this->title && $this->releaseDate && $this->image;
+    }
+
+    public function getImage(): string
+    {
+        // Assuming the image is stored in the public/images directory
+        return 'https://via.placeholder.com/150?text=' . urlencode($this->image);
+    }
+
+    public function isReleaseDate(): bool
+    {
+        // Format the release date to a more readable format
+        return Carbon::parse($this->releaseDate)->format('F j, Y');
     }
 
     /**
