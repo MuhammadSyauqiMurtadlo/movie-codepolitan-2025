@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 class Card extends Component
 {
@@ -21,9 +21,19 @@ class Card extends Component
     public function __construct($index, $title, $release_date, $image)
     {
         $this->index = $index;
-        $this->title = Str::upper($title);
-        $this->release_date = Carbon::parse($release_date)->format('Y-m-d');
+        $this->title = $title;
+        $this->release_date = $release_date;
         $this->image = $image;
+
+        if ($this->isValid()) {
+            $this->title = Str::upper($title);
+            $this->release_date = Carbon::parse($release_date)->format('Y-m-d');
+        }
+    }
+
+    public function isValid(): bool
+    {
+        return $this->title && $this->release_date && $this->image;
     }
 
     /**
@@ -31,6 +41,9 @@ class Card extends Component
      */
     public function render(): View|Closure|string
     {
+        if (!$this->isValid()) {
+            return 'Invalid movie data';
+        }
         return view('components.movie.card');
     }
 }
