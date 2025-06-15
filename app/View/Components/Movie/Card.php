@@ -26,7 +26,7 @@ class Card extends Component
         $this->image = $image;
 
         if ($this->isValid()) {
-            $this->title = Str::upper($title);
+            $this->title = ($title);
             $this->releaseDate = Carbon::parse($releaseDate)->format('Y-m-d');
         }
     }

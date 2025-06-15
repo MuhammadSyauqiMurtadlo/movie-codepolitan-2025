@@ -1,6 +1,6 @@
-<div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center relative group">
+<div class="bg-gray-800 p-4 rounded-lg shadow-lg relative group">
     <a href="{{ route('movie.show', $index) }}">
-        <img src="{{ $image }}" alt="{{ $title }}" class="w-full rounded-medium">
+        <img src="{{ $image }}" alt="{{ $title }}" class="w-full rounded-lg h-48 object-cover">
         <h3 class="text-md mt-2 font-md mb-4 line-clamp-2 h-14">{{ $title }}</h3>
         <p class="text-sm text-gray-400">{{ $releaseDate }}</p>
         <div class="absolute top-2 right-2 space-x-2 opacity-0 group-hover:opacity-100 transition">
