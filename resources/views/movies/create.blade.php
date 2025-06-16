@@ -16,8 +16,8 @@
                     class="mt-1 w-full bg-gray-800 border-gray-700 rounded shadow-sm focus:outline-none focus:ring-2 focus:border-blue-500 focus:ring-blue-600"></textarea>
             </div>
             <div class="mb-4">
-                <label for="release_date" class="block text-sm font-medium text-gray-700">Release Date</label>
-                <input type="date" id="release_date" name="release_date"
+                <label for="releaseDate" class="block text-sm font-medium text-gray-700">Release Date</label>
+                <input type="date" id="releaseDate" name="releaseDate"
                     class="mt-1 w-full bg-gray-800 border-gray-700 rounded shadow-sm focus:outline-none focus:ring-2 focus:border-blue-500 focus:ring-blue-600">
             </div>
             <div class="mb-4">

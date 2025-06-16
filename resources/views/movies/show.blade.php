@@ -8,7 +8,7 @@
         <div class="md:ml-10 mt-5 md:mt-0 w-full md:w-2/3 lg:w-3/4 p-4">
             <h2 class="text-4xl font-bold mb-4">{{ $movie['title'] }}</h2>
             <p class="text-gray-400 text-lg mb-4">
-                Realease Date: {{ $movie['release_date'] }}
+                Release Date: {{ $movie['releaseDate'] }}
             </p>
             <p class="text-lg mb-4">{{ $movie['description'] }}</p>
 
