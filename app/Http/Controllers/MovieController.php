@@ -107,20 +107,16 @@ class MovieController extends Controller
 
     public function index()
     {
-        // return $this->movies;
-        // return response()->json([
-        //     'data' => $this->movies,
-        //     'message' => 'List of movies',
-        // ], 200);
-
         $movies = $this->movies;
-        // return view('movies.index', [
-        //     'films' => $movies,
-        // ]);
-        return view('welcome', compact('movies'))->with([
-            'title' => 'List of Movies',
-            'description' => 'This is the list of movies',
+        return view('movies.index', [
+            'movies' => $movies,
+        ])->with([
+            'title' => 'List of Movies'
         ]);
+        // return view('welcome', compact('movies'))->with([
+        //     'title' => 'List of Movies',
+        //     'description' => 'This is the list of movies',
+        // ]);
     }
 
     public function show($id)
