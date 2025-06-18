@@ -144,11 +144,11 @@ class MovieController extends Controller
         // validate
         $request->validate([
             'title' => 'required|string|max:255',
-            // 'description' => 'required|string',
-            // 'releaseDate' => 'required|date',
-            // 'cast' => 'required|string',
-            // 'genres' => 'required|string',
-            // 'image' => 'required|url',
+            'description' => 'required|string',
+            'releaseDate' => 'required|date',
+            'cast' => 'required|string',
+            'genres' => 'required|string',
+            'image' => 'required|url',
         ]);
 
         $newMovie = [
