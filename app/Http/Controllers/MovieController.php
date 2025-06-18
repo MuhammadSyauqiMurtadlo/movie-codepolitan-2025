@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreMovieRequest;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -139,18 +140,8 @@ class MovieController extends Controller
         ]);
     }
 
-    public function store(request $request)
+    public function store(StoreMovieRequest $request)
     {
-        // validate
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'releaseDate' => 'required|date',
-            'cast' => 'required|string',
-            'genres' => 'required|string',
-            'image' => 'required|url',
-        ]);
-
         $newMovie = [
             'title' => $request['title'],
             'description' => $request['description'],
