@@ -30,4 +30,22 @@ class StoreMovieRequest extends FormRequest
             'image' => 'required|url',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Judul ini harus diisi.',
+            'description.required' => 'Deskripsi ini harus diisi.',
+            'releaseDate.required' => 'Tanggal rilis ini harus diisi.',
+            'cast.required' => 'Pemeran ini harus diisi.',
+            'genres.required' => 'Genre ini harus diisi.',
+            'image.required' => 'URL gambar ini harus diisi.',
+            'image.url' => 'Gambar ini harus berupa URL yang valid.',
+            'title.max' => 'Judul tidak boleh lebih dari 255 karakter.',
+            'description.string' => 'Deskripsi harus berupa teks.',
+            'releaseDate.date' => 'Tanggal rilis harus berupa tanggal yang valid.',
+            'cast.string' => 'Pemeran harus berupa teks.',
+            'genres.string' => 'Genre harus berupa teks.',
+        ];
+    }
 }
