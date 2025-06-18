@@ -5,7 +5,7 @@
         @foreach ($movies as $movie)
             <div class="bg-gray-800 p-4 rounded-lg shadow-lg text-center relative group">
                 <a href="{{ route('movie.show', $loop->index) }}">
-                    <img src="{{ $movie['image'] }}" alt="Movies" class="w-full rounded-medium">
+                    <img src="{{ $movie['image'] }}" alt="Movies" class="w-full rounded-lg mb-2 object-cover">
                     <h3 class="text-md mt-2 font-md mb-4 line-clamp-2 h-14">{{ $movie['title'] }}</h3>
                     <p class="text-sm text-gray-400">{{ $movie['releaseDate'] }}</p>
                     <div class="absolute top-2 right-2 space-x-2 opacity-0 group-hover:opacity-100 transition">
