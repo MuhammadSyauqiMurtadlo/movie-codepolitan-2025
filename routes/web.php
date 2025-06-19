@@ -220,3 +220,11 @@ Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function (
         return redirect('https://www.laravel.com');
     });
 });
+
+// session
+Route::get('/session', function (Request $request) {
+    $request->session()->put('is_member', 'true');
+    $request->session()->get('is_member', 'false');
+    session(['is_member' => 'true']);
+    return 'Session is set';
+});
