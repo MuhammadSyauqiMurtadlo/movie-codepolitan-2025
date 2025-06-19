@@ -224,6 +224,8 @@ Route::middleware('cache.headers:public;max_age=2628000;etag')->group(function (
 // session
 Route::get('/session', function (Request $request) {
     // session(['days' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday']]);
-    session()->push('days', 'Friday');
+    // session()->push('days', 'Friday');
+    // session()->put('days', array_diff(session('days'), ['Monday']));
+    session()->forget('days');
     return $request->session()->all();
 });
