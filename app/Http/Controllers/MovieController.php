@@ -102,7 +102,6 @@ class MovieController extends Controller
         return [
             'isAuth',
             new Middleware('IsMember', only: ['show']),
-            // new Middleware('IsMember', except: ['show']),
         ];
     }
 
@@ -114,10 +113,6 @@ class MovieController extends Controller
         ])->with([
             'title' => 'List of Movies'
         ]);
-        // return view('welcome', compact('movies'))->with([
-        //     'title' => 'List of Movies',
-        //     'description' => 'This is the list of movies',
-        // ]);
     }
 
     public function show($id)
@@ -150,9 +145,7 @@ class MovieController extends Controller
             'genres' => explode(',', $request['genres']),
             'image' => $request['image'],
         ];
-
         $this->movies[] = $newMovie;
-
         return $this->index();
     }
 
@@ -171,14 +164,12 @@ class MovieController extends Controller
             'genres' => explode(',', $request['genres']),
             'image' => $request['image'],
         ];
-
         return $this->show($id);
     }
 
     public function destroy($id)
     {
         unset($this->movies[$id]);
-
         return $this->index();
     }
 }
