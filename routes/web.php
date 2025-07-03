@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 // use App\Http\Middleware\isAuth;
 // use App\Http\Middleware\CheckMembership;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
+
 
 
 Route::get('/', function () {
@@ -229,3 +231,5 @@ Route::get('/session', function (Request $request) {
     session()->forget('days');
     return $request->session()->all();
 });
+
+Route::get('categories', [CategoryController::class, 'index']);
