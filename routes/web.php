@@ -233,3 +233,4 @@ Route::get('/session', function (Request $request) {
 });
 
 Route::get('categories', [CategoryController::class, 'index']);
+Route::post('categories', [CategoryController::class, 'store']);
