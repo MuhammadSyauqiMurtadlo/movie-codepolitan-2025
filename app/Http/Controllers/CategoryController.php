@@ -85,4 +85,14 @@ class CategoryController extends Controller
         ]);
         return $category;
     }
+
+    public function destroy($id)
+    {
+        // ? Query Builder
+        // $category = DB::table('categories')->where('id', $id)->delete();
+
+        // ? Eloquent
+        $category = Category::destroy($id);
+        return response()->json(['message' => 'Category deleted successfully'], 200);
+    }
 }
