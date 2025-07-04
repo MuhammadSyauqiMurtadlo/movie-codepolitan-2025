@@ -37,10 +37,22 @@ class CategoryController extends Controller
         //     'updated_at' => now()
         // ]);
 
-        $category = DB::table('categories')->insert([
-            ['name' => 'Komedi', 'slug' => Str::of('Komedi')->slug()],
-            ['name' => 'Drama Jepang', 'slug' => Str::of('Drama Jepang')->slug()],
-            ['name' => 'Drama Korea', 'slug' => Str::of('Drama Korea')->slug()],
+        // $category = DB::table('categories')->insert([
+        //     ['name' => 'Komedi', 'slug' => Str::of('Komedi')->slug()],
+        //     ['name' => 'Drama Jepang', 'slug' => Str::of('Drama Jepang')->slug()],
+        //     ['name' => 'Drama Korea', 'slug' => Str::of('Drama Korea')->slug()],
+        // ]);
+
+        // ?Add data with Eloquent 1
+        // $category = new Category();
+        // $category->name = $request['name'];
+        // $category->slug = Str::of($request['name'])->slug('-');
+        // $category->save();
+
+        // ?Add data with Eloquent 2
+        $category = Category::create([
+            'name' => $request['name'],
+            'slug' => Str::of($request['name'])->slug('-'),
         ]);
         return $category;
     }
