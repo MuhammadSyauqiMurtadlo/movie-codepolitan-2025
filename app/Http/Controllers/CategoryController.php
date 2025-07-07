@@ -44,16 +44,16 @@ class CategoryController extends Controller
         // ]);
 
         // ?Add data with Eloquent 1
-        // $category = new Category();
-        // $category->name = $request['name'];
-        // $category->slug = Str::of($request['name'])->slug('-');
-        // $category->save();
+        $category = new Category();
+        $category->name = $request['name'];
+        $category->slug = Str::of($request['name'])->slug('-');
+        $category->save();
 
         // ?Add data with Eloquent 2
-        $category = Category::create([
-            'name' => $request['name'],
-            'slug' => Str::of($request['name'])->slug('-'),
-        ]);
+        // $category = Category::create([
+        //     'name' => $request['name'],
+        //     'slug' => Str::of($request['name'])->slug('-'),
+        // ]);
         return $category;
     }
 
