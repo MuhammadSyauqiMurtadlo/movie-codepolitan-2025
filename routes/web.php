@@ -239,4 +239,6 @@ Route::put('categories/{id}', [CategoryController::class, 'update']);
 Route::delete('categories/{id}', [CategoryController::class, 'destroy']);
 
 Route::post('user/profile', [UserController::class, 'createProfile']);
-Route::get('user/profile', [UserController::class, 'UserProfile']);
+Route::get('user/profile', [UserController::class, 'userProfile']);
+Route::put('user/profile', [UserController::class, 'updateProfile']);
+Route::delete('user/profile', [UserController::class, 'deleteProfile']);

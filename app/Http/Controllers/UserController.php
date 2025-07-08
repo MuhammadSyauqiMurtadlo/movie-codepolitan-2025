@@ -19,7 +19,7 @@ class UserController extends Controller
         return response()->json(['message' => 'Profile created successfully']);
     }
 
-    public function UserProfile()
+    public function userProfile()
     {
         $user = User::all();
 
@@ -30,5 +30,26 @@ class UserController extends Controller
         // return $user->load('profile');
 
         return $user;
+    }
+
+    public function updateProfile()
+    {
+        $user = User::find(1);
+
+        $user->profile()->update([
+            'phone' => '0987654321',
+            'address' => '456 Elm St, Othertown, USA',
+        ]);
+
+        return response()->json(['message' => 'Profile updated successfully']);
+    }
+
+    public function deleteProfile()
+    {
+        $user = User::find(1);
+
+        $user->profile()->delete();
+
+        return response()->json(['message' => 'Profile deleted successfully']);
     }
 }
