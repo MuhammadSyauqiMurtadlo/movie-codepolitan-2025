@@ -18,4 +18,17 @@ class UserController extends Controller
 
         return response()->json(['message' => 'Profile created successfully']);
     }
+
+    public function UserProfile()
+    {
+        $user = User::all();
+
+        //? lazy loading (n+1 problem)
+        // $profile = $user->profile;
+
+        //? eager loading
+        // return $user->load('profile');
+
+        return $user;
+    }
 }

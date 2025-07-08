@@ -46,6 +46,8 @@ class User extends Authenticatable
         ];
     }
 
+    protected $with = 'profile';
+
     public function profile()
     {
         return $this->hasOne(Profile::class, 'user_id', 'id');
