@@ -6,6 +6,8 @@ use App\Http\Requests\StoreMovieRequest;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use App\Models\Movie;
+use App\Models\Category;
 
 class MovieController extends Controller
 {
@@ -171,5 +173,20 @@ class MovieController extends Controller
     {
         unset($this->movies[$id]);
         return $this->index();
+    }
+
+    public function attachCategory()
+    {
+        $movie = Movie::find(1);
+        // $movie->categories()->attach([1, 2, 3]);
+
+        $category = Category::find(3);
+        $category->movies()->attach([1]);
+
+        return response()->json([
+            'message' => 'Category attached to movie successfully.',
+            'movie' => $movie->load('categories'),
+            'category' => $category->load('movies')
+        ]);
     }
 }
