@@ -189,4 +189,20 @@ class MovieController extends Controller
             'category' => $category->load('movies')
         ]);
     }
+
+    public function detachCategory()
+    {
+        $movie = Movie::find(1);
+        // $movie->categories()->detach([1, 2]);
+
+        $category = Category::find(3);
+        $category->movies()->detach([1]);
+        // return $movie->with('categories')->first();
+
+        return response()->json([
+            'message' => 'Category detached from movie successfully.',
+            'movie' => $movie->load('categories'),
+            'category' => $category->load('movies')
+        ]);
+    }
 }
