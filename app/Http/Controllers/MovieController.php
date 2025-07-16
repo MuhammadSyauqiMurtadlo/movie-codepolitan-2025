@@ -205,4 +205,20 @@ class MovieController extends Controller
             'category' => $category->load('movies')
         ]);
     }
+
+    public function syncCategory()
+    {
+        $movie = Movie::find(1);
+        $movie->categories()->sync([1, 4, 5]);
+        return $movie->with('categories')->first();
+
+        // $category = Category::find(3);
+        // $category->movies()->sync([1]);
+
+        // return response()->json([
+        //     'message' => 'Category synced with movie successfully.',
+        //     'movie' => $movie->load('categories'),
+        //     'category' => $category->load('movies')
+        // ]);
+    }
 }

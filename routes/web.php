@@ -248,3 +248,5 @@ Route::get('ratings', [RatingController::class, 'index']);
 
 Route::get('attach-category', [MovieController::class, 'attachCategory']);
 Route::get('detach-category', [MovieController::class, 'detachCategory']);
+
+Route::get('sync-category', [MovieController::class, 'syncCategory']);
