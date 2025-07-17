@@ -250,3 +250,6 @@ Route::get('attach-category', [MovieController::class, 'attachCategory']);
 Route::get('detach-category', [MovieController::class, 'detachCategory']);
 
 Route::get('sync-category', [MovieController::class, 'syncCategory']);
+
+Route::get('get-movie-with-categories', [MovieController::class, 'getMovieWithCategories']);
+Route::get('get-category-with-movies', [MovieController::class, 'getCategoryWithMovies']);

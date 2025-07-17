@@ -186,7 +186,7 @@ class MovieController extends Controller
         return response()->json([
             'message' => 'Category attached to movie successfully.',
             'movie' => $movie->load('categories'),
-            'category' => $category->load('movies')
+            // 'category' => $category->load('movies')
         ]);
     }
 
@@ -195,14 +195,14 @@ class MovieController extends Controller
         $movie = Movie::find(1);
         // $movie->categories()->detach([1, 2]);
 
-        $category = Category::find(3);
+        $category = Category::find(5);
         $category->movies()->detach([1]);
         // return $movie->with('categories')->first();
 
         return response()->json([
             'message' => 'Category detached from movie successfully.',
             'movie' => $movie->load('categories'),
-            'category' => $category->load('movies')
+            // 'category' => $category->load('movies')
         ]);
     }
 
@@ -210,15 +210,31 @@ class MovieController extends Controller
     {
         $movie = Movie::find(1);
         $movie->categories()->sync([1, 4, 5]);
-        return $movie->with('categories')->first();
 
         // $category = Category::find(3);
         // $category->movies()->sync([1]);
 
-        // return response()->json([
-        //     'message' => 'Category synced with movie successfully.',
-        //     'movie' => $movie->load('categories'),
-        //     'category' => $category->load('movies')
-        // ]);
+        return response()->json([
+            'message' => 'Category synced with movie successfully.',
+            'movie' => $movie->load('categories'),
+        ]);
+    }
+
+    public function getMovieWithCategories()
+    {
+        $movie = Movie::with('categories')->find(6);
+
+        return response()->json([
+            'movie' => $movie
+        ]);
+    }
+
+    public function getCategoryWithMovies()
+    {
+        $category = Category::with('movies')->find(4);
+
+        return response()->json([
+            'category' => $category
+        ]);
     }
 }
