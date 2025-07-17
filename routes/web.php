@@ -253,3 +253,4 @@ Route::get('sync-category', [MovieController::class, 'syncCategory']);
 
 Route::get('get-movie-with-categories', [MovieController::class, 'getMovieWithCategories']);
 Route::get('get-category-with-movies', [MovieController::class, 'getCategoryWithMovies']);
+Route::get('get-all-movies-with-categories', [MovieController::class, 'getAllMoviesWithCategories']);

@@ -237,4 +237,13 @@ class MovieController extends Controller
             'category' => $category
         ]);
     }
+
+    public function getAllMoviesWithCategories()
+    {
+        $movies = Movie::with('categories')->get();
+
+        return response()->json([
+            'movies' => $movies
+        ]);
+    }
 }
