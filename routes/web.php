@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\AuthController;
 // use App\Http\Middleware\isAuth;
 // use App\Http\Middleware\CheckMembership;
 use Illuminate\Support\Facades\Route;
@@ -254,3 +255,16 @@ Route::get('sync-category', [MovieController::class, 'syncCategory']);
 Route::get('get-movie-with-categories', [MovieController::class, 'getMovieWithCategories']);
 Route::get('get-category-with-movies', [MovieController::class, 'getCategoryWithMovies']);
 Route::get('get-all-movies-with-categories', [MovieController::class, 'getAllMoviesWithCategories']);
+
+Route::get('register', [AuthController::class, 'showRegisterForm']);
+Route::post('register', [AuthController::class, 'register'])->name('register.store');
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AuthController::class, 'login'])->name('login.store');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+// route group
+Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+});
